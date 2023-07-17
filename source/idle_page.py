@@ -10,19 +10,26 @@ import numpy as np
 import matplotlib as mpl
 mpl.use("TkAgg")
 
+
 class Idle(Page):
     label = None
-    data = np.random.normal(100, 30, 40).tolist()
+    data = []
     canvas = None
     p = None
 
     def change_label(self, text):
         self.label.config(text=text)
-        
+
+    def build_histogram(self):
+        self.p.hist(x=self.data, bins=BIN_COUNT)
+        self.p.set_title("Heights of Guests in cm")
+        self.p.set_ylabel("Frequency", fontsize=24)
+        self.p.set_xlabel("Height in cm", fontsize=24)
+
     def add_data(self, value):
         self.p.clear()
         self.data.append(value)
-        self.p.hist(x=self.data, bins=BIN_COUNT)
+        self.build_histogram()
         self.canvas.draw()
         # self.canvas.flush_events()
 
@@ -33,12 +40,16 @@ class Idle(Page):
         self.canvas = FigureCanvasTkAgg(f, self)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
-        self.p = f.gca()
-        self.p.hist(x=self.data, bins=BIN_COUNT)
-        self.p.set_title("Heights of Guests in cm")
-        self.p.set_ylabel("Frequency", fontsize=24)
-        self.p.set_xlabel("Height in cm", fontsize=24)
+        # Read in the data during initialization
+        try:
+            with open("../data/guest_heights.txt", "r") as data_file:
+                for line in data_file:
+                    self.data.append(float(line.split(",")[1]))
+        except:
+            print("Could not read data file")
 
+        self.p = f.gca()
+        self.build_histogram()
         self.label = tk.Label(
             self, text="Please stand on the spot!", font=("Arial", 60))
         self.label.pack(side="bottom", fill="x", expand=True)

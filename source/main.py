@@ -42,15 +42,12 @@ class MainView(tk.Frame):
 
     def run(self):
         if self.state == IDLE:
-            print("IDLE")
             self.do_idle()
 
         elif self.state == PROMPT:
-            print("PROMPT")
             self.do_prompt()
 
         elif self.state == DISPLAY:
-            print("DISPLAY")
             self.do_display()
 
     def do_idle(self):
@@ -61,7 +58,7 @@ class MainView(tk.Frame):
             self.idle_screen.show()
             self.after(DETECT_GUEST_MS, lambda: self.do_idle())
 
-    def determine_result(self, values):
+    def _determine_result(self, values):
         self.guest_height = np.median(values)
 
         # If the median value is above the threshold, then the guest is still
@@ -80,7 +77,16 @@ class MainView(tk.Frame):
         for i in range(0, STILL_TIME_MS, DETECT_GUEST_MS):
             self.after(i, lambda: values.append(self.sensor.get_value()))
 
-        self.after(STILL_TIME_MS, lambda: self.determine_result(values))
+        self.after(STILL_TIME_MS, lambda: self._determine_result(values))
+
+    def _log_height(self, height):
+        with open("../data/guest_heights.txt", "a+") as f:
+            # Write the timestamp and height
+            f.write(str(time.strftime("%m/%d/%Y-%H:%M")) +
+                    "," + str(height) + "\n")
+
+        # Update the idle screen
+        self.idle_screen.add_data(height)
 
     def do_display(self):
         if (not self.guest_height):
@@ -90,11 +96,14 @@ class MainView(tk.Frame):
 
         self.result_screen.set_height(self.guest_height)
         self.result_screen.show()
+        self._log_height(self.guest_height)
+        tk.Tk.update(self)
+        self.result_screen.read_height(self.guest_height)
 
+        # Set the state back to idle after a few seconds
         self.state = IDLE
-        self.after(DISPLAY_TIME_MS, lambda: self.run())
-        
-
+        self.after(DISPLAY_RESULT_TIME_MS, lambda: self.idle_screen.show())
+        self.after(DISPLAY_RESULT_TIME_MS + FORCE_WAIT_TIME, lambda: self.run())
 
 
 if __name__ == "__main__":
