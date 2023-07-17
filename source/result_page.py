@@ -13,7 +13,6 @@ unit_bank = {
 }
 units = list(unit_bank.keys())
 
-
 class Result(Page):
     label = None
     index = 0

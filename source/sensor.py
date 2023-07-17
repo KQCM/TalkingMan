@@ -22,6 +22,6 @@ class Sensor:
         else: # Spoof sensor for testing
             # If the 'a' key is pressed, return a value above the threshold
             if keyboard.is_pressed('a'):
-                return random.randint(100, 120)
+                return random.randint(100, 200)
             else:
                 return 0
