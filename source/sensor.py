@@ -37,7 +37,6 @@ class Sensor:
                     else:
                         return result
             vl53.clear_interrupt()
-            time.sleep(0.5)
         else: # Spoof sensor for testing
             # If the 'a' key is pressed, return a value above the threshold
             if keyboard.is_pressed('a'):
