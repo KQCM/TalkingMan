@@ -2,6 +2,7 @@
 from page_def import Page
 
 from config import *
+from style import *
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
@@ -21,10 +22,16 @@ class Idle(Page):
         self.label.config(text=text)
 
     def build_histogram(self):
-        self.p.hist(x=self.data, bins=BIN_COUNT)
-        self.p.set_title("Heights of Guests in cm")
-        self.p.set_ylabel("Frequency", fontsize=24)
-        self.p.set_xlabel("Height in cm", fontsize=24)
+        self.p.hist(x=self.data, bins=BIN_COUNT, color=chart_color)
+        self.p.axes.set_facecolor(background_color)
+        self.p.set_title("Heights of Guests in cm", color=text_color)
+        self.p.set_ylabel("Frequency", fontsize=24, color=text_color)
+        self.p.set_xlabel("Height in cm", fontsize=24, color=text_color)
+        self.p.tick_params(colors=text_color)
+        self.p.spines['left'].set_color(text_color)
+        self.p.spines['bottom'].set_color(text_color)
+        self.p.spines['right'].set_color(text_color)
+        self.p.spines['top'].set_color(text_color)
 
     def add_data(self, value):
         self.p.clear()
@@ -36,7 +43,7 @@ class Idle(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
 
-        f = Figure(figsize=(5, 5), dpi=100)
+        f = Figure(figsize=(5, 5), dpi=100, facecolor=background_color)
         self.canvas = FigureCanvasTkAgg(f, self)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
@@ -50,8 +57,8 @@ class Idle(Page):
 
         self.p = f.gca()
         self.build_histogram()
-        self.label = tk.Label(
-            self, text="Please stand on the spot!", font=("Arial", 60))
-        self.label.pack(side="bottom", fill="x", expand=True)
+        #self.label = tk.Label(
+        #    self, text="Please stand on the spot!", font=("Arial", 60))
+        #self.label.pack(side="bottom", fill="x", expand=True)
 
         self.canvas.draw()

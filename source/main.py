@@ -53,7 +53,7 @@ class MainView(tk.Frame):
     def do_idle(self):
         if self.sensor.get_value() > SENSOR_DETECT_THRESHOLD:
             self.state = PROMPT
-            self.run()
+            self.run() 
         else:
             self.idle_screen.show()
             self.after(DETECT_GUEST_MS, lambda: self.do_idle())

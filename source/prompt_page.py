@@ -1,7 +1,7 @@
 
 import tkinter as tk
 from page_def import Page
-
+from style import *
 
 class Prompt(Page):
     label = None
@@ -9,5 +9,5 @@ class Prompt(Page):
     def __init__(self, *args, **kwargs):
         Page.__init__(self, *args, **kwargs)
         self.label = tk.Label(
-            self, text="Hey I see you there! Stand still!", font=("Arial", 80))
+            self, text="Place your hand on your head!", font=(text_font, 70),bg=background_color, fg=text_color, wraplength=text_wraplength, justify=text_justify)
         self.label.pack(side="top", fill="both", expand=True)

@@ -8,9 +8,7 @@ SERIAL_PORT = "/dev/ttyS0"   # or "COM4" or whatever
 serialport = serial.Serial(SERIAL_PORT, 9600)
 
 def read_me007ys(timeout = 1.0):
-
-    serialport.read_all()
-
+    #serialport.read_all()
     ts = time.monotonic()
     buf = bytearray(3)
     idx = 0
@@ -32,3 +30,4 @@ def read_me007ys(timeout = 1.0):
                 return (buf[1] << 8) + buf[2]
             idx = 0
     return None
+
