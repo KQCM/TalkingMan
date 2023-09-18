@@ -1,0 +1,25 @@
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+  File "/usr/lib/python3.9/tkinter/__init__.py", line 814, in callit
+    func(*args)
+  File "/home/exhibit/TalkingManKQ/source/main.py", line 59, in <lambda>
+    self.after(DETECT_GUEST_MS, lambda: self.do_idle())
+  File "/home/exhibit/TalkingManKQ/source/main.py", line 54, in do_idle
+    if self.sensor.get_value() > SENSOR_DETECT_THRESHOLD:
+  File "/home/exhibit/TalkingManKQ/source/sensor.py", line 33, in get_value
+    result = (((HEIGHT_OF_SENSOR_CM) - vl53.distance))
+  File "/home/exhibit/.local/lib/python3.9/site-packages/adafruit_vl53l1x.py", line 205, in distance
+    if self._read_register(_VL53L1X_RESULT__RANGE_STATUS)[0] != 0x09:
+  File "/home/exhibit/.local/lib/python3.9/site-packages/adafruit_vl53l1x.py", line 308, in _read_register
+    i2c.readinto(data)
+  File "/usr/local/lib/python3.9/dist-packages/adafruit_bus_device/i2c_device.py", line 81, in readinto
+    self.i2c.readfrom_into(self.device_address, buf, start=start, end=end)
+  File "/usr/local/lib/python3.9/dist-packages/busio.py", line 186, in readfrom_into
+    return self._i2c.readfrom_into(address, buffer, stop=stop)
+  File "/usr/local/lib/python3.9/dist-packages/adafruit_blinka/microcontroller/generic_linux/i2c.py", line 59, in readfrom_into
+    readin = self._i2c_bus.read_bytes(address, end - start)
+  File "/usr/local/lib/python3.9/dist-packages/Adafruit_PureIO/smbus.py", line 170, in read_bytes
+    return self._device.read(number)
+OSError: [Errno 121] Remote I/O error
