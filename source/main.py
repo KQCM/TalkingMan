@@ -37,7 +37,7 @@ class MainView(tk.Frame):
             in_=container, x=0, y=0, relwidth=1, relheight=1)
         self.result_screen.place(
             in_=container, x=0, y=0, relwidth=1, relheight=1)
-        self.sensor.vl53.start_ranging() #starts the sensor running so it doesn't have to send the command every time
+        self.sensor.star_sensor() #starts the sensor running so it doesn't have to send the command every time
 
         self.run()
 

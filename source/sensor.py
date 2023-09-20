@@ -18,6 +18,8 @@ vl53.timing_budget = 200
 
 
 class Sensor:
+    def start_sensor(self):
+        vl53.start_ranging()
     def get_value(self):
         if SPOOF_SENSOR == False:
             try:
