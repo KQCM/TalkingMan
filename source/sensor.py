@@ -20,7 +20,6 @@ vl53.timing_budget = 200
 class Sensor:
     def get_value(self):
         if SPOOF_SENSOR == False:
-            vl53.start_ranging()
             try:
                 result = (vl53.distance)
             except:
@@ -37,6 +36,7 @@ class Sensor:
                     else:
                         return result
             vl53.clear_interrupt()
+            time.sleep(0.33)
         else: # Spoof sensor for testing
             # If the 'a' key is pressed, return a value above the threshold
             if keyboard.is_pressed('a'):
