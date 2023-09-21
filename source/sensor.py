@@ -23,22 +23,21 @@ class Sensor:
     def get_value(self):
         if SPOOF_SENSOR == False:
             try:
-                result = (vl53.distance)
+                result = (HEIGHT_OF_SENSOR_CM - vl53.distance)
             except:
                 print("Error reading sensor")
                 return 0
             else:
-                if vl53.distance == None:
+                if result == None:
                     return 0
                 else:
-                    result = (((HEIGHT_OF_SENSOR_CM) - vl53.distance))
                     if result < 0:
                         print("Sensor value below 0")
                         return 0
                     else:
                         return result
             vl53.clear_interrupt()
-            time.sleep(0.33)
+            time.sleep(1)
         else: # Spoof sensor for testing
             # If the 'a' key is pressed, return a value above the threshold
             if keyboard.is_pressed('a'):
