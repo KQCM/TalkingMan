@@ -3,13 +3,13 @@
 STILL_TIME_MS = 3000
 
 # The threshold for the sensor to detect a guest, in cm
-SENSOR_DETECT_THRESHOLD = 40
+SENSOR_DETECT_THRESHOLD = 65
 
 # How often to check the sensor for a guest, in milliseconds
-DETECT_GUEST_MS = 500
+DETECT_GUEST_MS = 250
 
 # How many bins to use for the histogram
-BIN_COUNT = 10
+BIN_COUNT = 15
 
 # How long to display the result screen for, in milliseconds
 DISPLAY_RESULT_TIME_MS = 8000
