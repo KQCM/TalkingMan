@@ -60,7 +60,7 @@ class MainView(tk.Frame):
             self.after(DETECT_GUEST_MS, lambda: self.do_idle())
 
     def _determine_result(self, values):
-        self.guest_height = np.mean(values)
+        self.guest_height = np.median(values)
 
         # If the median value is above the threshold, then the guest is still
         if self.guest_height > SENSOR_DETECT_THRESHOLD:
