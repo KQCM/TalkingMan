@@ -6,6 +6,7 @@ from prompt_page import Prompt
 from sensor import Sensor
 import time
 import numpy as np
+import subprocess
 
 from config import *
 
@@ -73,7 +74,9 @@ class MainView(tk.Frame):
 
     def do_prompt(self):
         self.prompt_screen.show()
-
+        promptsay = "echo \"" + "Please stand on the spot and place your hand on your head" + "\" | festival --tts"
+        subprocess.Popen(promptsay, shell=True)
+        
         values = []
         for i in range(0, STILL_TIME_MS, DETECT_GUEST_MS):
             self.after(i, lambda: values.append(self.sensor.get_value()))
