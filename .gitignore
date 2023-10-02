@@ -1,3 +1,4 @@
 # ignore pycache
 /source/__pycache__/
+# ignore the active guest heights file
 /data/guest_heights.txt
