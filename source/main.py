@@ -74,7 +74,7 @@ class MainView(tk.Frame):
 
     def do_prompt(self):
         self.prompt_screen.show()
-        promptsay = "echo \"" + "Please stand on the spot and place your hand on your head" + "\" | festival --tts"
+        promptsay = "echo \"" + "Please stand on the spot" + "\" | festival --tts"
         subprocess.Popen(promptsay, shell=True)
         
         values = []

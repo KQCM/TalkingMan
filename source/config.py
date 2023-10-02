@@ -1,6 +1,6 @@
 # How long to wait for a guest to stand still before measuring their height, in milliseconds
 # The final height is the median of all the values read during this time
-STILL_TIME_MS = 3000
+STILL_TIME_MS = 4000
 
 # The threshold for the sensor to detect a guest, in cm
 SENSOR_DETECT_THRESHOLD = 65
@@ -24,4 +24,4 @@ OS = "Linux" # "Windows" or "Linux"
 SPOOF_SENSOR = False
 
 # The height of the sensor from the ground, in cm
-HEIGHT_OF_SENSOR_CM = 300
+HEIGHT_OF_SENSOR_CM = 295
