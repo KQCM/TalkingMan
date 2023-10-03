@@ -76,6 +76,9 @@ class MainView(tk.Frame):
         self.prompt_screen.show()
         promptsay = "echo \"" + "Please stand on the spot" + "\" | festival --tts"
         subprocess.Popen(promptsay, shell=True)
+
+        # add a delay before the measurment time
+        time.sleep(1)
         
         values = []
         for i in range(0, STILL_TIME_MS, DETECT_GUEST_MS):
