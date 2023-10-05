@@ -3,7 +3,7 @@
 STILL_TIME_MS = 4000
 
 # The threshold for the sensor to detect a guest, in cm
-SENSOR_DETECT_THRESHOLD = 65
+SENSOR_DETECT_THRESHOLD = 55
 
 # How often to check the sensor for a guest, in milliseconds
 DETECT_GUEST_MS = 250
