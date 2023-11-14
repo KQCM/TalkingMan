@@ -31,9 +31,15 @@ Candy:
 unit_bank = {
     "ice cream cones": 12,
     "jelly beans": 1.27,
-    "M&Ms": ,
-    "Reeses Cups": ,
-    "Mentos": ,
-    "Red Vines": ,
-    "
+    "M&Ms": 1.04,
+    "Reeses Cups": 5.08,
+    "Mentos": 2.0,
+    "Red Vines": 17.0,
+    "candy canes": 15.24,
+    "gumballs": 2.5,
+    "giant jaw breakers": 5.72,
+    "Kit Kat": 9.0,
+    "Nerds candy": 0.3,
+    "peppermints": ,
+    "Necco Wafers": ,
 }
