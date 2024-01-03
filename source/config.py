@@ -3,10 +3,10 @@
 STILL_TIME_MS = 3000
 
 # The threshold for the sensor to detect a guest, in cm
-SENSOR_DETECT_THRESHOLD = 55
+SENSOR_DETECT_THRESHOLD = 45
 
 # How often to check the sensor for a guest, in milliseconds
-DETECT_GUEST_MS = 250
+DETECT_GUEST_MS = 300
 
 # How many bins to use for the histogram
 BIN_COUNT = 15
@@ -15,7 +15,7 @@ BIN_COUNT = 15
 DISPLAY_RESULT_TIME_MS = 8000
 
 # How long to wait after displaying the idle screen before checking for a guest again, in milliseconds
-FORCE_WAIT_TIME = 1500
+FORCE_WAIT_TIME = 1000
 
 # The operating system that the program is running on
 OS = "Linux" # "Windows" or "Linux"
