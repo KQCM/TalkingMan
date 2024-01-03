@@ -1,3 +1,5 @@
+#This is a depricated file no longer in use.
+
 import time
 import board
 import busio
