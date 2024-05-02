@@ -8,17 +8,27 @@ import subprocess
 
 # Unit name : conversion factor to cm
 unit_bank = {
+    "inches": 2.54,
+    "bananas": 17.78,
+    "school buses": 1219.2,
+    "football fields": 9144,
+    "acorns": 1.25,
+    "blue whales": 2990,
+    "tennis balls": 6.70,
     "ice cream cones": 12,
+    "soup cans": 12,
     "jelly beans": 1.27,
-    "M&Ms": 1.04,
-    "Reeses Cups": 5.08,
-    "Mentos": 2.0,
-    "Red Vines": 17.0,
-    "candy canes": 15.24,
-    "gumballs": 2.5,
-    "giant jaw breakers": 5.72,
-    "Kit Kat": 9.0,
-    "Nerds candy": 0.3,
+    "ukuleles": 53,
+    "Barbies": 29,
+    "chopsticks": 23,
+    "soccer balls": 22.5,
+    "pennies": 1.91,
+    "dairy cows": 1450,
+    "space needles": 18400,
+    "grains of rice": 0.3,
+    "corgis": 60,
+    "Goldfish crackers": 2.9,
+    "sasquatches": 304,
 }
 units = list(unit_bank.keys())
 
