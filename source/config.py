@@ -24,4 +24,4 @@ OS = "Linux" # "Windows" or "Linux"
 SPOOF_SENSOR = False
 
 # The height of the sensor from the ground, in cm
-HEIGHT_OF_SENSOR_CM = 259
+HEIGHT_OF_SENSOR_CM = 242
